@@ -1,5 +1,7 @@
+<!-- layout.blade.phpの継承 -->
 @extends('layout')
 
+<!-- layout.blade.phpの@yield('content')の部分に差し込む -->
 @section('content')
     <div class="container mt-4">
         <div>
@@ -47,3 +49,4 @@
         </div>
     </div>
 @endsection('content')
+<!-- layout.blade.phpの@yield('content')の部分に読み込む -->

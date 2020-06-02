@@ -8,7 +8,7 @@ class PostsController extends Controller
 {
     public function index()
     {
-        return view('posts.index');
+        return view('posts.index'); //posts/index.blade,phpを表示
     }
     public function show()
     {

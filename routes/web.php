@@ -14,5 +14,5 @@
 // Route::get('/', function () {
 //     return view('welcome');
 // });
-Route::get('/', 'PostsController@index')->name('top');
+Route::get('/', 'PostsController@index')->name('top'); // '/'でもtopでも呼び出せる
 Route::get('/show', 'PostsController@show')->name('posts.show');
