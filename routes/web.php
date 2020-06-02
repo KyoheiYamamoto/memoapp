@@ -15,4 +15,7 @@
 //     return view('welcome');
 // });
 Route::get('/', 'PostsController@index')->name('top'); // '/'でもtopでも呼び出せる
+Route::get('/create', 'PostsController@create')->name('posts.create');
+Route::get('/edit', 'PostsController@edit')->name('posts.edit');
 Route::get('/show', 'PostsController@show')->name('posts.show');
+

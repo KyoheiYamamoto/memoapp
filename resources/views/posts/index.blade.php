@@ -5,7 +5,7 @@
 @section('content')
     <div class="container mt-4">
         <div>
-         <a class="btn btn-primary" href="">投稿の新規作成</a>
+         <a class="btn btn-primary" href="{{route('posts.create')}}">投稿の新規作成</a>
         </div>
     </div>
     <div class="container my-4">
