@@ -3,12 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Post;
 
 class PostsController extends Controller
 {
     public function index()
     {
-        return view('posts.index'); //posts/index.blade,phpを表示
+        $posts = Post::orderBy('created_at','desc')->paginate(6);
+        // dd($posts);
+        return view('posts.index',['posts' =>$posts]);
+        //view側でpostsと名前づけられた変数に$postのデータを与える
     }
 
     public function create()
