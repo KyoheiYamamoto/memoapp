@@ -6,11 +6,10 @@
        <h5 class="mb-4">
         投稿の新規作成
        </h5>
-       <!-- {!!Form::open()!!} 適切なformを作成するテンプレートエンジン -->
+
+       {!!Form::open(['route'=>'posts.store'])!!}
             <div class="form-group">
-            <!-- formのラベル↓ -->
              {!!Form::label('title','タイトル')!!}
-             <!-- 値を保持するもの↓ -->
              {!!Form::text('title',old('title'),['class'=>'form-control'])!!}
             </div>
             <div class="form-group">

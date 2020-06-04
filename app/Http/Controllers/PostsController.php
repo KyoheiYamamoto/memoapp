@@ -19,6 +19,11 @@ class PostsController extends Controller
     {
         return view('posts.create');
     }
+    public function store(Request $request)
+    {
+        dd($request);
+        return view('posts.create');
+    }
     public function edit()
     {
         return view('posts.edit'); //editを返す
