@@ -19,7 +19,7 @@ class PostsController extends Controller
     {
         return view('posts.create');
     }
-    
+
     public function store(Request $request)
     {
         $params = $request->validate([
@@ -36,9 +36,12 @@ class PostsController extends Controller
         return view('posts.edit'); //editを返す
     }
 
-    public function show()
+    public function show($post_id)
     {
-        return view('posts.show');
+         $post = Post::findOrFail($post_id);
+        // dd($post);
+
+        return view('posts.show',['post'=>$post]);
     }
 
 }

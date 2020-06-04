@@ -20,8 +20,7 @@
                 <p>
                      {{$post->body}}
                 </p>
-                <a class="card-link" href="{{route('posts.show')}}">
-                    詳細をみる
+                <a class="card-link" href="{{route('posts.show',['post_id'=>$post->id])}}">詳細をみる
                 </a>
             </div>
             <div class="card-footer">
@@ -36,4 +35,3 @@
         </div>
     </div>
 @endsection('content')
-<!-- layout.blade.phpの@yield('content')の部分に読み込む -->

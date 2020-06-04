@@ -15,17 +15,17 @@
         <div class="card">
             <div class="card-header">
                 <h2>
-                    post title
+                    {{$post->title}}
                 </h2>
             </div>
             <div class="card-body">
                 <p>
-                    Post body
+                    {{$post->body}}
                 </p>
             </div>
             <div class="card-footer">
                 <span>
-                    投稿日時:2020-1-1
+                    {{$post->created_at->format('Y-m-d')}}
                 </span>
             </div>
         </div>

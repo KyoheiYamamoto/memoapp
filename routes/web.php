@@ -18,4 +18,4 @@ Route::get('/', 'PostsController@index')->name('top'); // '/'でもtopでも呼�
 Route::get('/create', 'PostsController@create')->name('posts.create');
 Route::post('/store', 'PostsController@store')->name('posts.store');
 Route::get('/edit', 'PostsController@edit')->name('posts.edit');
-Route::get('/show', 'PostsController@show')->name('posts.show');
+Route::get('/show{post_id}', 'PostsController@show')->name('posts.show');
