@@ -31,10 +31,7 @@ class PostsController extends Controller
         return redirect()->route('top');
 
     }
-    public function edit()
-    {
-        return view('posts.edit'); //editを返す
-    }
+
 
     public function show($post_id)
     {
@@ -43,5 +40,24 @@ class PostsController extends Controller
 
         return view('posts.show',['post'=>$post]);
     }
+    public function edit($post_id)
+    {
+        $post = Post::findOrFail($post_id);
 
+        return view('posts.edit',['post'=>$post]); //editを返す
+    }
+    public function update($post_id,Request $request)
+    {
+        // dd($request);
+        $params = $request->validate([
+            'title'=>'required|max:20',
+            'body'=>'required|max:140',
+        ]);
+        // dd($params);
+        $post = Post::findOrFail($post_id);
+        $post->fill($params)->save();
+
+
+        return redirect()->route('posts.show',['post'=>$post]);
+    }
 }
