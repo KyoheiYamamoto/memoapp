@@ -19,10 +19,17 @@ class PostsController extends Controller
     {
         return view('posts.create');
     }
+    
     public function store(Request $request)
     {
-        dd($request);
-        return view('posts.create');
+        $params = $request->validate([
+            'title'=>'required|max:20',
+            'body'=>'required|max:140',
+        ]);
+
+        Post::create($params);
+        return redirect()->route('top');
+
     }
     public function edit()
     {
