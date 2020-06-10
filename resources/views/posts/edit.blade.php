@@ -6,6 +6,15 @@
        <h5 class="mb-4">
         投稿の編集
        </h5>
+       @if($errors->any())
+        <div>
+            <ul class="alert alert-danger">
+                @foreach ($errors->all() as $error)
+                  <li>{{$error}}</li>
+                @endforeach
+            </ul>
+        </div>
+       @endif
         {!!Form::open(['route'=>['posts.update',$post->id],'method'=>'put'])!!}
         <!--適切なformを作成するテンプレートエンジン -->
             <div class="form-group">

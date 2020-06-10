@@ -9,9 +9,9 @@ class PostsController extends Controller
 {
     public function index()
     {
-        $posts = Post::orderBy('created_at','desc')->paginate(6);
+        $posts = Post::orderBy('created_at', 'desc')->paginate(6);
         // dd($posts);
-        return view('posts.index',['posts' =>$posts]);
+        return view('posts.index', ['posts' =>$posts]);
         //view側でpostsと名前づけられた変数に$postのデータを与える
     }
 
@@ -29,24 +29,22 @@ class PostsController extends Controller
 
         Post::create($params);
         return redirect()->route('top');
-
     }
-
 
     public function show($post_id)
     {
-         $post = Post::findOrFail($post_id);
+        $post = Post::findOrFail($post_id);
         // dd($post);
 
-        return view('posts.show',['post'=>$post]);
+        return view('posts.show', ['post'=>$post]);
     }
     public function edit($post_id)
     {
         $post = Post::findOrFail($post_id);
 
-        return view('posts.edit',['post'=>$post]); //editを返す
+        return view('posts.edit', ['post'=>$post]); //editを返す
     }
-    public function update($post_id,Request $request)
+    public function update($post_id, Request $request)
     {
         // dd($request);
         $params = $request->validate([
@@ -57,13 +55,13 @@ class PostsController extends Controller
         $post = Post::findOrFail($post_id);
         $post->fill($params)->save();
 
-        return redirect()->route('posts.show',['post'=>$post]);
+        return redirect()->route('posts.show', ['post'=>$post]);
     }
     public function destroy($post_id)
     {
         // dd($post_id);
         $post = Post::findOrFail($post_id);
-        \DB::transaction(function() use ($post){
+        \DB::transaction(function () use ($post) {
             $post->delete();
         });
         return redirect()->route('top');
